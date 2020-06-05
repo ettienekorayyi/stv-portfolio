@@ -16,6 +16,11 @@
     border: 0;
   }
 
+  /* Menu Button Click */
+  .main-menu a.item:hover {
+    background-color: darkturquoise !important;
+  }
+
   /* Button styling */
   .menu-toggle {
     display: inline-block;
@@ -27,12 +32,11 @@
 
   .menu-toggle:hover,
   .menu-toggle:focus {
-    color: #c00;
+    color: turquoise;
   }
 
   .main-menu {
     position: absolute;
-
     display: none;
     left: -200px;
     top: 0;
@@ -41,7 +45,6 @@
     overflow-x: visible;
     transition: left 0.3s ease, box-shadow 0.3s ease;
     z-index: 999;
-    /**/
   }
 
   .main-menu {
@@ -57,6 +60,15 @@
     width: 200px;
     height: 50px;
     background: #1a1a1a;
+  }
+
+  /* Remove Bottom border of close button */
+  #main-menu-close {
+    border-bottom: none !important;
+  }
+
+  .main-menu .item {
+    margin: 5% !important;
   }
 
   .main-menu a {
