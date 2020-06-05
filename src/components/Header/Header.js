@@ -1,4 +1,5 @@
 import React from "react";
+
 import "./header.css";
 
 const Header = () => {
@@ -14,11 +15,11 @@ const Header = () => {
           <a
               href="#main-menu-toggle"
               id="main-menu-close"
-              class="menu-close"
+              className="menu-close"
               aria-label="Close Main Menu"
             >
-              <span class="sr-only">Close Main Menu</span>
-              <span class="fa fa-close" aria-hidden="true"></span>
+              <span className="sr-only">Close Main Menu</span>
+              <span className="fa fa-close" aria-hidden="true"></span>
             </a>
             <a className="active item">Home</a>
             <a className="item">About Me</a>
