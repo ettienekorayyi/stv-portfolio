@@ -17,8 +17,9 @@ function Home() {
                 .pause(750)
                 .delete(14)
                 .type("Stephen")
-
+              
             return instance;
+            
           }} />
           <h3>A Junior Fullstack Developer</h3>
         </div>

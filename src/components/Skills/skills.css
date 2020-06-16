@@ -1,0 +1,40 @@
+@media only screen and (max-width: 400px) {
+  /* About Me Page */
+  #skills {
+    height: 90vh;
+    padding-top: 40%;
+  }
+
+  section#title {
+    text-align: center;
+  }
+
+  /* Adding lines before and after the content */
+  section#title > h1::before,
+  section#title > h1::after {
+    content: "";
+    display: block;
+    background-image: linear-gradient(darkcyan, #62cad0, aquamarine, darkcyan);
+    margin-left: 27%;
+    width: 150px;
+    height: 1px;
+  }
+
+  div#skills-container {
+    margin-top: 3rem !important;
+  }
+
+  section#skill-icons {
+    margin: 1.5rem;
+    /*background-color: pink;  for removal */
+    text-shadow: 10px 5px 10px lightslategrey;
+    /*height: 200px;  for removal */
+  }
+
+  /* Font Size of Content */
+
+  section#skill-icons i {
+    font-size: 5rem;
+    padding: 1rem;
+  }
+}
