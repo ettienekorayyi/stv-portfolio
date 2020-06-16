@@ -1,0 +1,24 @@
+@media only screen and (max-width: 400px) {
+  /* Home Page */
+  #content {
+    background-color: #62cad0;
+    background-image: linear-gradient(darkcyan, #62cad0, aquamarine, darkcyan);
+    height: 90vh;
+    padding-top: 40%;
+  }
+
+  .content-wrapper #textContent {
+    text-align: center;
+    padding: 20%;
+  }
+
+  /* Font Size of Content */
+  .content-wrapper #textContent > h1 {
+    line-height: 0.9;
+    margin: 0;
+    font-size: 55px;
+  }
+  .content-wrapper #textContent > h3 {
+    font-size: 15px;
+  }
+}

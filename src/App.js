@@ -1,7 +1,9 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 
 import Header from "./components/Header/Header";
+import Home from "./components/Home/Home";
+
 import "./App.css";
 
 function App() {
@@ -9,6 +11,7 @@ function App() {
     <div>
       <BrowserRouter>
         <Header />
+        <Route to="/" component={Home}/>
       </BrowserRouter>
     </div>
   );
