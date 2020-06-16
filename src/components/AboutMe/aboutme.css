@@ -1,0 +1,41 @@
+@media only screen and (max-width: 400px) {
+  /* About Me Page */
+  #aboutme {
+    height: 90vh;
+    padding-top: 40%;
+  }
+
+  section#title {
+    text-align: center;
+  }
+
+  section#title > h1::before,
+  section#title > h1::after {
+    content: '';
+    display: block;
+    background-image: linear-gradient(darkcyan, #62cad0, aquamarine, darkcyan);
+    margin-left: 27%;
+    width: 150px;
+    height: 1px;
+  }
+
+  section#description {
+    margin-top: 2rem;
+  }
+
+  /* Font Size of Content */
+  
+
+  #description > #text h3 {
+    text-align: center;
+    font-weight: 100;
+  }
+
+  #description > #text h3,
+  #description > #text p {
+    line-height: 0.9;
+    padding-left: 1em;
+    padding-right: 1em;
+    font-size: 1.4rem;
+  }
+}

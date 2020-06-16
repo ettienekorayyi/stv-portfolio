@@ -35,6 +35,10 @@
     color: turquoise;
   }
 
+  /* Highlight Navigation */
+  a.item:focus {
+    background-color: turquoise !important;
+  }
   .main-menu {
     position: absolute;
     display: none;
