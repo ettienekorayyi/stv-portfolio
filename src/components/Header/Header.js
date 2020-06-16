@@ -24,6 +24,7 @@ const Header = () => {
             </a>
             <Link to="/" className="active item"  >Home</Link>
             <Link to="/aboutme" className="item" >About Me</Link>
+            <Link to="/skills" className="item">Skills</Link>
             <a className="item">Portfolios</a>
             <a className="item">Contact</a>
           </nav>
