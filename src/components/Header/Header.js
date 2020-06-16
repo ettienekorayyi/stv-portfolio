@@ -1,8 +1,9 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import "./header.css";
 
 const Header = () => {
+  
   return (
     <header>
       <div className="ui container">
@@ -21,8 +22,8 @@ const Header = () => {
               <span className="sr-only">Close Main Menu</span>
               <span className="fa fa-close" aria-hidden="true"></span>
             </a>
-            <a className="active item">Home</a>
-            <a className="item">About Me</a>
+            <Link to="/" className="active item"  >Home</Link>
+            <Link to="/aboutme" className="item" >About Me</Link>
             <a className="item">Portfolios</a>
             <a className="item">Contact</a>
           </nav>
