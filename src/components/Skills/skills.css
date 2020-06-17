@@ -24,17 +24,19 @@
     margin-top: 3rem !important;
   }
 
+   /* Add shadows on the icons */
   section#skill-icons {
     margin: 1.5rem;
-    /*background-color: pink;  for removal */
     text-shadow: 10px 5px 10px lightslategrey;
-    /*height: 200px;  for removal */
   }
-
-  /* Font Size of Content */
 
   section#skill-icons i {
     font-size: 5rem;
     padding: 1rem;
+  }
+
+  section#skill-icons i:active {
+    text-shadow: 10px 5px 10px #3A6060;
+
   }
 }
