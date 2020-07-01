@@ -1,7 +1,7 @@
 import React from "react";
 
 import TypeIt from "typeit-react";
-import { imageRenderer } from '../../common/renderImages';
+import { imageRenderer } from "../../common/renderImages";
 import "./aboutme.css";
 
 const AboutMe = () => {
@@ -9,18 +9,35 @@ const AboutMe = () => {
     return (
       <div id="text">
         <p id="txtcontent">
-            I'm an aspiring fullstack software developer from New South Wales
-            and I specialise in C#/React with a goal of becoming a fullstack web
-            developer. I'm a fan of PS4 games, TV series and camping. <br></br><br></br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p>
 
-            I was a Customer Care Engineer(contractor) at Ricoh Australia for 8
-            months and a software tester at Aabode for 10 months.
-          </p>
+        <p id="txtcontent">
+          Has assum adversarium te, ex vis tale nostrud eruditi. Ei prima mazim
+          per, eu vis justo doctus expetenda. At nostro aliquando qui, at
+          efficiantur philosophia eum. Eius dolores has ad. Ea mea alterum
+          molestiae, ius ex augue graeci tractatos, vim duis rebum id. Id novum
+          virtute corrumpit qui, sea id quidam nominavi. Mel nusquam fastidii
+          ponderum ea, ut choro animal disputando eos. Cum id audire nominavi,
+          ne vim mazim graecis voluptaria. An dico minim tacimates nec, qui stet
+          verear consectetuer at, semper maluisset constituam ex vel. Pri at
+          summo admodum, vide vidit voluptua an sit, soluta voluptatum
+          liberavisse nam ne.
+        </p>
       </div>
     );
   };
   return (
-    <section id="aboutme" style={{ backgroundImage: `url(${imageRenderer()})` }}>
+    <section
+      id="aboutme"
+      style={{ backgroundImage: `url(${imageRenderer()})` }}
+    >
       <div className="ui container ">
         <div id="textContent">
           <section id="title">
