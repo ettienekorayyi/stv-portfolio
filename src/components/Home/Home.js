@@ -1,11 +1,15 @@
 import React from "react";
 import TypeIt from "typeit-react";
 
+import { imageRenderer } from '../../common/renderImages';
 import "./home.css";
 
-function Home() {
+const Home = () => {
   return (
-    <section id="content">
+    <section
+      id="content"
+      style={{ backgroundImage: `url(${imageRenderer()})` }}
+    >
       <div className="ui container content-wrapper">
         <div id="textContent">
           <h1>Hey, I'm</h1>
@@ -23,6 +27,6 @@ function Home() {
       </div>
     </section>
   );
-}
+};
 
 export default Home;

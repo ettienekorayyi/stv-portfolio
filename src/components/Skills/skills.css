@@ -1,12 +1,23 @@
 @media only screen and (max-width: 400px) {
   /* About Me Page */
   #skills {
-    height: 90vh;
+    height: 96vh;
+    width: 360px;
+    height: 96vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
     padding-top: 40%;
+        
   }
 
   section#title {
     text-align: center;
+  }
+
+  section#title h1#text {
+    font-size: xxx-large !important;
+    color: white;
   }
 
   /* Adding lines before and after the content */
@@ -37,6 +48,5 @@
 
   section#skill-icons i:active {
     text-shadow: 10px 5px 10px #3A6060;
-
   }
 }

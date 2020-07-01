@@ -26,7 +26,7 @@ const Header = () => {
             <Link to="/aboutme" className="item" >About Me</Link>
             <Link to="/skills" className="item">Skills</Link>
             <a className="item">Portfolios</a>
-            <a className="item">Contact</a>
+            <Link to="/contact" className="item">Contact</Link>
           </nav>
           <a
             href="#main-menu-toggle"

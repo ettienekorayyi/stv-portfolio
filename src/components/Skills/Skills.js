@@ -1,13 +1,16 @@
 import React from "react";
+
+import { imageRenderer } from '../../common/renderImages';
 import "./skills.css";
 
-function Skills() {
+const Skills = () => {
+
   return (
-    <section id="skills">
+    <section id="skills" style={{ backgroundImage: `url(${imageRenderer()})` }}>
       <div className="ui container">
         <div id="skillsContent">
           <section id="title">
-            <h1>Skills</h1>
+            <h1 id="text">Skills</h1>
           </section>
           <div id="skills-container">
             <section id="skill-icons">
