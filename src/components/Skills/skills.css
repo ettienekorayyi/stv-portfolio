@@ -41,7 +41,8 @@
     content: "";
     display: block;
     background-image: linear-gradient(darkcyan, #62cad0, aquamarine, darkcyan);
-    margin-left: 43%;
+    margin-left: auto;
+    margin-right: auto;
     width: 150px;
     height: 1px;
   }
