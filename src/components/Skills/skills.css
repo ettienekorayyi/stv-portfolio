@@ -1,14 +1,65 @@
+/* Desktop Device */
+@media (min-width: 1281px) {
+  #skills {
+    background-image: linear-gradient(darkcyan, #62cad0, aquamarine, darkcyan);
+    width: 100%;
+    height: 92.7vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+  }
+
+  div#skillsContent {
+    padding: 10%;
+  }
+
+  section#title h1#text {
+    font-size: xxx-large !important;
+    color: white;
+  }
+
+  section#title > h1 {
+    text-shadow: 10px 5px 10px black;
+  }
+
+  section#skill-icons {
+    margin: 1.5rem;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 10px 5px 10px black;
+  }
+
+  section#skill-icons i {
+    font-size: 8rem;
+    padding: 5rem;
+  }
+
+  /* Adding lines before and after the content */
+  section#title > h1::before,
+  section#title > h1::after {
+    content: "";
+    display: block;
+    background-image: linear-gradient(darkcyan, #62cad0, aquamarine, darkcyan);
+    margin-left: 43%;
+    width: 150px;
+    height: 1px;
+  }
+
+  div#skills-container {
+    margin-top: 3rem !important;
+  }
+}
+
+/* Mobile Device */
 @media only screen and (max-width: 400px) {
-  /* About Me Page */
   #skills {
     height: 96vh;
     width: 360px;
     height: 96vh;
     background-size: cover;
     background-repeat: no-repeat;
-    
     padding-top: 40%;
-        
   }
 
   section#title {
@@ -35,10 +86,10 @@
     margin-top: 3rem !important;
   }
 
-   /* Add shadows on the icons */
+  /* Add shadows on the icons */
   section#skill-icons {
     margin: 1.5rem;
-    text-shadow: 10px 5px 10px lightslategrey;
+    text-shadow: 10px 5px 10px black;
   }
 
   section#skill-icons i {
@@ -47,6 +98,6 @@
   }
 
   section#skill-icons i:active {
-    text-shadow: 10px 5px 10px #3A6060;
+    text-shadow: 10px 5px 10px #3a6060;
   }
 }
