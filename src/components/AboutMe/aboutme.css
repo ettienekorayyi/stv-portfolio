@@ -37,7 +37,7 @@
   section#title > h1 {
     font-size: xxx-large !important;
     color: white;
-    text-shadow: 10px 5px 10px white;
+    text-shadow: 10px 5px 10px ;
   }
 
   section#title h3,
@@ -47,7 +47,7 @@
     padding-right: 1em;
     font-size: 1.4rem;
     color: white;
-    text-shadow: 10px 5px 10px white; /* rgb(93,143,178)*/
+    text-shadow: 10px 5px 10px black;
   }
 }
 
@@ -55,11 +55,9 @@
 @media only screen and (max-width: 400px) {
   #aboutme {
     width: 360px;
-    height: 96vh;
     background-size: cover;
     background-repeat: no-repeat;
-
-    padding-top: 40%;
+    padding-top: 10%;
   }
 
   section#title {
@@ -78,11 +76,13 @@
 
   section#description {
     margin-top: 3rem;
+    padding-bottom: 10rem;
   }
 
   /* Font Size of Content */
   section#title > h1 {
     font-size: xxx-large;
+    text-shadow: 10px 5px 10px black;
   }
 
   #description > #text h3 {
@@ -97,6 +97,6 @@
     padding-right: 1em;
     font-size: 1.4rem;
     color: white;
-    text-shadow: 10px 5px 10px white; /* rgb(93,143,178)*/
+    text-shadow: 10px 5px 10px black; 
   }
 }
