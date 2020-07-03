@@ -1,5 +1,5 @@
 /* Desktop Device */
-@media (min-width: 1281px) {
+@media only screen and  (min-width: 1281px) {
   #content {
     background-image: linear-gradient(darkcyan, #62cad0, aquamarine, darkcyan);
     width: 100%;
