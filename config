@@ -12,5 +12,5 @@
 	remote = origin
 	merge = refs/heads/master
 [remote "heroku"]
-	url = https://git.heroku.com/peaceful-shelf-24418.git
+	url = https://git.heroku.com/dry-bastion-47289.git
 	fetch = +refs/heads/*:refs/remotes/heroku/*
