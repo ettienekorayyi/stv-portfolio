@@ -1,9 +1,8 @@
-﻿using System;
+﻿using System.Net;
+using System.Net.Mail;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using System;
 
 namespace API.Controllers
 {
@@ -25,6 +24,36 @@ namespace API.Controllers
                     Name = "Maggie"
                 }
             };
+        }
+
+        [HttpPost]
+        public void Send()
+        {
+            string email = "corralstephenmelben.it@gmail.com";
+            string password = "@_122789-Australia!7@_itgmail";
+            MailAddress to = new MailAddress("corralannmargarett@gmail.com");
+            MailAddress from = new MailAddress("corralstephenmelben.it@gmail.com");
+            MailMessage message = new MailMessage(from, to);
+
+            message.Subject = "Good morning Stephen...";
+            message.Body = "Lorem ipsum dolor wapar siptum gitp";
+
+            SmtpClient client = new SmtpClient("smtp.gmail.com",587)
+            {
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(email, password),
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+            };
+
+            try
+            {
+                client.Send(message);
+            }
+            catch(SmtpException smtp)
+            {
+                Console.WriteLine(smtp);
+            }
         }
     }
 }
