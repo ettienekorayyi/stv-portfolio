@@ -3,3 +3,6 @@
 
 #Ignore all obj folders
 API/obj
+
+#Ignore all obj folders
+API/bin
