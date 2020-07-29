@@ -30,7 +30,7 @@ namespace API.Controllers
         public void Send()
         {
             string email = "corralstephenmelben.it@gmail.com";
-            string password = "@_122789-Australia!7@_itgmail";
+            string password = "";
             MailAddress to = new MailAddress("corralannmargarett@gmail.com");
             MailAddress from = new MailAddress("corralstephenmelben.it@gmail.com");
             MailMessage message = new MailMessage(from, to);
