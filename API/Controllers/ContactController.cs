@@ -14,10 +14,13 @@ namespace API.Controllers
     public class ContactController : ControllerBase
     {
         private readonly IOptions<SmtpSettings> _smtpSettings;
+        private readonly string _email;
+        private readonly string _password;
 
         public ContactController(IOptions<SmtpSettings> smtpSettings)
         {
-            _smtpSettings = smtpSettings;
+            _email = smtpSettings.Value.Email;
+            _password = smtpSettings.Value.Password;
         }
 
         [HttpGet]
@@ -36,24 +39,20 @@ namespace API.Controllers
             };
         }
 
-        // https://stackoverflow.com/questions/18503333/the-smtp-server-requires-a-secure-connection-or-the-client-was-not-authenticated
         [HttpPost]
         public void Send()
         {
-            string email = _smtpSettings.Value.Email;
-            string password = _smtpSettings.Value.Password;
-            System.Console.WriteLine(email);
             MailAddress to = new MailAddress("corralannmargarett@gmail.com");
-            MailAddress from = new MailAddress("corralstephenmelben.it@gmail.com");
+            MailAddress from = new MailAddress(_email);
             MailMessage message = new MailMessage(from, to);
 
             message.Subject = "Good evening Maggie...";
             message.Body = "Wapak...fwaji";
 
-            SmtpClient client = new SmtpClient("smtp.gmail.com",587)
+            SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
             {
                 UseDefaultCredentials = false,
-                Credentials = new NetworkCredential(email, password),
+                Credentials = new NetworkCredential(_email, _password),
                 EnableSsl = true,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
             };
@@ -62,7 +61,7 @@ namespace API.Controllers
             {
                 client.Send(message);
             }
-            catch(SmtpException smtp)
+            catch (SmtpException smtp)
             {
                 Console.WriteLine(smtp);
             }
