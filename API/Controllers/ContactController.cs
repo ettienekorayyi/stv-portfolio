@@ -40,7 +40,7 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public void Send()
+        public void Post()
         {
             MailAddress to = new MailAddress("corralannmargarett@gmail.com");
             MailAddress from = new MailAddress(_email);
