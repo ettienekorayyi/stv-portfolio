@@ -5,14 +5,11 @@ import axios from "axios";
 
 import "./contactme.css";
 
-let contact = {
-  name: "stephen",
-  email: "sss@bbb.com.au",
-  message:
-    "Proident id qui mollit cillum consequat ipsum est sunt culpa non. Cillum enim mollit commodo amet deserunt mollit cupidatat. Commodo adipisicing esse exercitation ut nostrud pariatur cillum cillum commodo ullamco esse incididunt consectetur velit. Nisi sint laboris cupidatat sint voluptate. Labore culpa et dolore officia commodo.",
-};
 const ContactMe = () => {
   const [trigger, setTrigger] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   //const [sendEmail, setSendEmail] = useState(); https://localhost:5001/api
 
   const proxy = "https://cors-anywhere.herokuapp.com/";
@@ -22,11 +19,12 @@ const ContactMe = () => {
     if (trigger) {
       axios({
         method: "post",
-        url:
-          `${proxy} + ${url}`,
+        url: `${proxy} + ${url}`,
         headers: { "Content-Type": "application/json" },
         data: {
-          data: contact, // This is the body part
+          "Name": name,
+          "Email": email,
+          "Message": message,
         },
       }).then((response) => {
         console.log(response.config.data);
@@ -35,12 +33,11 @@ const ContactMe = () => {
   }, [trigger]);
 
   const handleSubmit = (e) => {
+    const {} = e.target;
     e.preventDefault();
     setTrigger(true);
     console.log("clicked");
   };
-
-  const consumeApi = () => {};
 
   return (
     <section
@@ -54,13 +51,24 @@ const ContactMe = () => {
           </section>
           <form className="ui form">
             <div className="field">
-              <input type="text" className="textbox" placeholder="Name" />
+              <input
+                type="text"
+                className="textbox"
+                placeholder="Name"
+                onChange={(e) => setName(e.target.value)}
+              />
             </div>
             <div className="field">
-              <input type="email" className="textbox" placeholder="Email" />
+              <input
+                type="email"
+                className="textbox"
+                placeholder="Email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
             <div className="field">
               <textarea
+                onChange={(e) => setMessage(e.target.value)}
                 className="textbox"
                 placeholder="Your Message"
                 name="message"

@@ -40,14 +40,14 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public void Post()
+        public void Post(Contact contact)
         {
-            MailAddress to = new MailAddress("corralannmargarett@gmail.com");
+            MailAddress to = new MailAddress(contact.Email);
             MailAddress from = new MailAddress(_email);
             MailMessage message = new MailMessage(from, to);
 
-            message.Subject = "Good evening Maggie...";
-            message.Body = "Wapak...fwaji";
+            message.Subject = $"Good evening {contact.Name}...";
+            message.Body = contact.Message;
 
             SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
             {
