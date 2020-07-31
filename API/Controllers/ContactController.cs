@@ -42,29 +42,35 @@ namespace API.Controllers
         [HttpPost]
         public void Post(Contact contact)
         {
-            MailAddress to = new MailAddress(contact.Email);
-            MailAddress from = new MailAddress(_email);
-            MailMessage message = new MailMessage(from, to);
 
-            message.Subject = $"Good evening {contact.Name}...";
-            message.Body = contact.Message;
-
-            SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
+            using (SmtpClient client = new SmtpClient("smtp.gmail.com", 587))
             {
-                UseDefaultCredentials = false,
-                Credentials = new NetworkCredential(_email, _password),
-                EnableSsl = true,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-            };
+                MailAddress to = new MailAddress(contact.Email);
+                MailAddress from = new MailAddress(_email);
 
-            try
-            {
-                client.Send(message);
+                client.UseDefaultCredentials = false;
+                client.Credentials = new NetworkCredential(_email, _password);
+                client.EnableSsl = true;
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+
+                using (MailMessage message = new MailMessage(from, to))
+                {
+                    message.Subject = $"Good evening {contact.Name}...";
+                    message.Body = contact.Message;
+
+                    try
+                    {
+                        client.Send(message);
+                    }
+                    catch (SmtpException smtp)
+                    {
+                        Console.WriteLine(smtp);
+                    }
+                }
+
             }
-            catch (SmtpException smtp)
-            {
-                Console.WriteLine(smtp);
-            }
+
+
         }
     }
 }

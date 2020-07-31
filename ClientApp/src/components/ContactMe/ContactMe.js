@@ -5,6 +5,7 @@ import axios from "axios";
 
 import "./contactme.css";
 
+
 const ContactMe = () => {
   const [trigger, setTrigger] = useState(false);
   const [name, setName] = useState("");
@@ -15,17 +16,19 @@ const ContactMe = () => {
   const proxy = "https://cors-anywhere.herokuapp.com/";
   const url = "https://localhost:5001/api/contact";
 
+  const data = JSON.stringify({
+    "Name": name,
+    "Email": email,
+    "Message": message,
+  });
+
   useEffect(() => {
     if (trigger) {
       axios({
         method: "post",
         url: `${proxy} + ${url}`,
-        headers: { "Content-Type": "application/json" },
-        data: {
-          "Name": name,
-          "Email": email,
-          "Message": message,
-        },
+        headers: { 'Content-Type': 'application/json' },
+        data: data,
       }).then((response) => {
         console.log(response.config.data);
       });
