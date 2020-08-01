@@ -13,7 +13,6 @@ namespace API.Controllers
     [Route("api/[controller]")]
     public class ContactController : ControllerBase
     {
-        private readonly IOptions<SmtpSettings> _smtpSettings;
         private readonly string _email;
         private readonly string _password;
 
@@ -54,8 +53,8 @@ namespace API.Controllers
 
                 using (MailMessage message = new MailMessage(from, to))
                 {
-                    message.Subject = $"Hello Stephen...";
-                    message.Body = contact.Message;
+                    message.Subject = $"Expression of interest to collaborate with {contact.Name}";
+                    message.Body = $"{contact.Message} \n\n\n Regards, \n\n {contact.Name} \n {contact.Email}";
 
                     try
                     {
