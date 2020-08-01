@@ -3,6 +3,11 @@
 
 #Ignore all obj folders
 API/obj
+Domain/obj
 
 #Ignore all obj folders
 API/bin
+Domain/bin
+
+#Ignore appsettings.json
+API/appsettings.json

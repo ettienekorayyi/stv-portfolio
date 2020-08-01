@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Domain;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,6 +27,18 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.Configure<SmtpSettings>(Configuration.GetSection("SmtpSettings"));
+            services.AddCors(opt =>
+            {
+                opt.AddPolicy("CorsPolicy", 
+                    policy =>
+                    {
+                        policy.AllowAnyHeader()
+                                .AllowAnyMethod()
+                                .WithOrigins("http://localhost:3000");
+                    });
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +55,8 @@ namespace API
 
             app.UseAuthorization();
 
+            app.UseCors("CorsPolicy");
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

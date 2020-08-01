@@ -1,9 +1,43 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import { imageRenderer } from "../../common/renderImages";
+import axios from "axios";
+
 import "./contactme.css";
 
+
 const ContactMe = () => {
+  const [trigger, setTrigger] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const url = "https://localhost:5001/api/contact";
+
+  const data = JSON.stringify({
+    "Name": name,
+    "Email": email,
+    "Message": message,
+  });
+
+  useEffect(() => {
+    if (trigger) {
+      axios({
+        method: "post",
+        url: `${url}`,
+        headers: { 'Content-Type': 'application/json' },
+        data: data,
+      }).then((response) => {
+        console.log(response.config.data);
+      });
+    }
+  }, [trigger]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setTrigger(true);
+  };
+
   return (
     <section
       id="contactme"
@@ -16,13 +50,24 @@ const ContactMe = () => {
           </section>
           <form className="ui form">
             <div className="field">
-              <input type="text" className="textbox" placeholder="Name" />
+              <input
+                type="text"
+                className="textbox"
+                placeholder="Name"
+                onChange={(e) => setName(e.target.value)}
+              />
             </div>
             <div className="field">
-              <input type="email" className="textbox" placeholder="Email" />
+              <input
+                type="email"
+                className="textbox"
+                placeholder="Email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
             <div className="field">
               <textarea
+                onChange={(e) => setMessage(e.target.value)}
                 className="textbox"
                 placeholder="Your Message"
                 name="message"
@@ -31,8 +76,9 @@ const ContactMe = () => {
               ></textarea>
             </div>
             <div className="field">
-              <button 
-                className="ui inverted button">Submit</button>
+              <button onClick={handleSubmit} className="ui inverted button">
+                Submit
+              </button>
             </div>
           </form>
         </div>
