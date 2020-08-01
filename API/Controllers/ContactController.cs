@@ -42,11 +42,10 @@ namespace API.Controllers
         [HttpPost]
         public void Post(Contact contact)
         {
-
             using (SmtpClient client = new SmtpClient("smtp.gmail.com", 587))
             {
-                MailAddress to = new MailAddress(contact.Email);
-                MailAddress from = new MailAddress(_email);
+                MailAddress to = new MailAddress(_email);
+                MailAddress from = new MailAddress(contact.Email);
 
                 client.UseDefaultCredentials = false;
                 client.Credentials = new NetworkCredential(_email, _password);
@@ -55,7 +54,7 @@ namespace API.Controllers
 
                 using (MailMessage message = new MailMessage(from, to))
                 {
-                    message.Subject = $"Good evening {contact.Name}...";
+                    message.Subject = $"Hello Stephen...";
                     message.Body = contact.Message;
 
                     try
@@ -67,7 +66,6 @@ namespace API.Controllers
                         Console.WriteLine(smtp);
                     }
                 }
-
             }
 
 

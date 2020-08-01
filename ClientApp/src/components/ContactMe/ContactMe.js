@@ -11,9 +11,7 @@ const ContactMe = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  //const [sendEmail, setSendEmail] = useState(); https://localhost:5001/api
 
-  const proxy = "https://cors-anywhere.herokuapp.com/";
   const url = "https://localhost:5001/api/contact";
 
   const data = JSON.stringify({
@@ -26,7 +24,7 @@ const ContactMe = () => {
     if (trigger) {
       axios({
         method: "post",
-        url: `${proxy} + ${url}`,
+        url: `${url}`,
         headers: { 'Content-Type': 'application/json' },
         data: data,
       }).then((response) => {
@@ -36,10 +34,8 @@ const ContactMe = () => {
   }, [trigger]);
 
   const handleSubmit = (e) => {
-    const {} = e.target;
     e.preventDefault();
     setTrigger(true);
-    console.log("clicked");
   };
 
   return (
