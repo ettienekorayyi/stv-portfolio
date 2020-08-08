@@ -27,12 +27,11 @@ const ContactForm = () => {
         method: "post",
         url: `${url}`,
         headers: { "Content-Type": "application/json" },
-        data: data,
-      }).then((response) => {
+        data: data, // sends the data to our controller
+      }).then(() => {
         onClear();
       });
     }
-    
   }, [trigger]);
 
   const onSubmit = (e) => {
@@ -45,53 +44,46 @@ const ContactForm = () => {
     setTrigger(false);
     setLoading(false);
     setName();
-    setEmail('');
-    setMessage('');
-    console.log('reset successful.');
+    setEmail("");
+    setMessage("");
   };
-  
-  const renderContent = () => {
-    return (
-      <form className="ui form" onSubmit={onSubmit}>
-        <div className="field">
-          <input
-            type="text"
-            className="textbox"
-            placeholder="Name"
-            onChange={(e) => setName(e.target.value)}
-          />
-        </div>
-        <div className="field">
-          <input
-            type="email"
-            className="textbox"
-            placeholder="Email"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div className="field">
-          <textarea
-            onChange={(e) => setMessage(e.target.value)}
-            className="textbox"
-            placeholder="Your Message"
-            name="message"
-            rows="4"
-            cols="35"
-          ></textarea>
-        </div>
-        <div className="field">
-          <button className="ui inverted button">
-            Submit
-          </button>
-        </div>
-      </form>
-    );
-  }
 
-  return(
-    <div>{ !loading ? renderContent() : <LoadingSpinner /> }</div>
+  return (
+      <React.Fragment>
+        <form className="ui form" onSubmit={onSubmit}>
+          <div className="field">
+            <input
+              type="text"
+              className="textbox"
+              placeholder="Name"
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <div className="field">
+            <input
+              type="email"
+              className="textbox"
+              placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="field">
+            <textarea
+              onChange={(e) => setMessage(e.target.value)}
+              className="textbox"
+              placeholder="Your Message"
+              name="message"
+              rows="4"
+              cols="35"
+            ></textarea>
+          </div>
+          <div className="field">
+            <button className="ui inverted button">Submit</button>
+          </div>
+        </form>
+        {!loading ? <div style={{display: 'none'}}></div> : <LoadingSpinner />}
+      </React.Fragment>
   );
-
 };
 
 export default ContactForm;
