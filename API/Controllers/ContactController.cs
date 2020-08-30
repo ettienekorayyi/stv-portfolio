@@ -6,6 +6,8 @@ using Microsoft.Extensions.Configuration;
 using System;
 using Microsoft.Extensions.Options;
 using Domain;
+using API.Classes;
+using API.Interfaces;
 
 namespace API.Controllers
 {
@@ -13,61 +15,19 @@ namespace API.Controllers
     [Route("api/[controller]")]
     public class ContactController : ControllerBase
     {
-        private readonly string _email;
-        private readonly string _password;
+        private readonly IOptions<SmtpSettings> _smtpSettings;
+        private IEmail _email;
 
-        public ContactController(IOptions<SmtpSettings> smtpSettings)
+        public ContactController(IOptions<SmtpSettings> smtpSettings, IEmail email = null)
         {
-            _email = smtpSettings.Value.Email;
-            _password = smtpSettings.Value.Password;
-        }
-
-        [HttpGet]
-        public IEnumerable<Domain> Get()
-        {
-            return new List<Domain>
-            {
-                new Domain {
-                    Age = 22,
-                    Name = "Stephen"
-                },
-                new Domain {
-                    Age = 25,
-                    Name = "Maggie"
-                }
-            };
+            _smtpSettings = smtpSettings;
+            _email = email ?? new Email(smtpSettings);
         }
 
         [HttpPost]
         public void Post(Contact contact)
         {
-            using (SmtpClient client = new SmtpClient("smtp.gmail.com", 587))
-            {
-                MailAddress to = new MailAddress(_email);
-                MailAddress from = new MailAddress(contact.Email);
-
-                client.UseDefaultCredentials = false;
-                client.Credentials = new NetworkCredential(_email, _password);
-                client.EnableSsl = true;
-                client.DeliveryMethod = SmtpDeliveryMethod.Network;
-
-                using (MailMessage message = new MailMessage(from, to))
-                {
-                    message.Subject = $"Expression of interest to collaborate with {contact.Name}";
-                    message.Body = $"{contact.Message} \n\n\n Regards, \n\n {contact.Name} \n {contact.Email}";
-
-                    try
-                    {
-                        client.Send(message);
-                    }
-                    catch (SmtpException smtp)
-                    {
-                        Console.WriteLine(smtp);
-                    }
-                }
-            }
-
-
+            _email.ComposeMessage(contact);
         }
     }
 }
