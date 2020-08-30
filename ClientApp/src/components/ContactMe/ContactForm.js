@@ -4,7 +4,7 @@ import { imageRenderer } from "../../common/renderImages";
 import axios from "axios";
 
 import "./contactme.css";
-import { LoadingSpinner } from "../LoadingSpinner/LoadingSpinner";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 const ContactForm = () => {
   const [loading, setLoading] = useState(false);

@@ -11,3 +11,10 @@ Domain/bin
 
 #Ignore appsettings.json
 API/appsettings.json
+
+/node_modules
+
+obj/
+
+APITests/bin/
+APITests/obj/
